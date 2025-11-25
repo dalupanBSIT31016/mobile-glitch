@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mobile Glitch with Android Popup</title>
+
+<style>
+    body {
+        margin: 0;
+        overflow: hidden;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: "Arial", sans-serif;
+        background: linear-gradient(135deg, #4a148c, #880e4f, #1a237e);
+        background-size: 400% 400%;
+        animation: bgMove 14s infinite alternate;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        transition: filter 0.5s ease;
+    }
+
+    @keyframes bgMove {
+        0% { background-position: 0% 50%; }
+        100% { background-position: 100% 50%; }
+    }
+
+    h1 {
+        font-size: clamp(1.2rem, 6vw, 2rem);
+        text-shadow: 0 0 10px #ff00ff;
+        transition: filter 0.3s ease;
+    }
+
+    .box {
+        margin-top: 15px;
+        padding: 20px;
+        width: 90%;
+        max-width: 380px;
+        background: rgba(0,0,0,0.4);
+        border-radius: 15px;
+        border: 2px solid #ffffff55;
+        backdrop-filter: blur(6px);
+        box-shadow: 0 0 15px #00000080;
+        transition: filter 0.3s ease;
+    }
+
+    button {
+        width: 100%;
+        padding: 15px 0;
+        font-size: clamp(1.1rem, 5vw, 1.5rem);
+        font-weight: bold;
+        background: #00e5ff;
+        color: black;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        box-shadow: 0 0 10px #00e5ff;
+        transition: 0.3s ease;
+        touch-action: manipulation;
+    }
+
+    button:active {
+        transform: scale(0.95);
+        box-shadow: 0 0 20px #00e5ff;
+    }
+
+    /* FULL SCREEN GLITCH */
+    .glitchScreen {
+        animation: fullGlitch 0.13s infinite;
+        filter: blur(4px);
+    }
+
+    @keyframes fullGlitch {
+        0% { transform: translate(2px, -3px) skew(2deg); filter: hue-rotate(60deg) blur(2px); }
+        25% { transform: translate(-3px, 2px) skew(-2deg); filter: hue-rotate(120deg) blur(3px); }
+        50% { transform: translate(3px, 1px) skew(3deg); filter: hue-rotate(240deg) blur(4px); }
+        75% { transform: translate(-4px, -1px) skew(-3deg); filter: hue-rotate(300deg) blur(3px); }
+        100% { transform: translate(0, 0) skew(0deg); filter: hue-rotate(0deg) blur(2px); }
+    }
+
+    /* BLACKOUT */
+    #blackout {
+        position: fixed;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        background:black;
+        opacity:0;
+        pointer-events:none;
+        transition: opacity 0.8s ease-in;
+    }
+
+    /* ANDROID POPUP */
+    #androidPopup {
+        position: fixed;
+        bottom: 25px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 350px;
+        padding: 15px;
+        background: #2c2c2c;
+        color: white;
+        border-radius: 14px;
+        box-shadow: 0 0 25px #000000aa;
+        font-size: 1rem;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        text-align: left;
+    }
+
+    #androidPopup b {
+        color: #00e5ff;
+    }
+</style>
+</head>
+
+<body>
+
+<h1 id="title">“You won ₱10,000! Click YES to claim your prize!”</h1>
+
+<div class="box" id="contentBox">
+    <p>Do you want to claim your reward?</p>
+    <button onclick="startMobileGlitch()">YES</button>
+</div>
+
+<!-- ANDROID STYLE POPUP -->
+<div id="androidPopup">
+    <b>Security Warning:</b><br>
+    Suspicious link detected.  
+    Phone may be at risk…
+</div>
+
+<!-- GLITCH SOUND -->
+<audio id="glitchSound">
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_2f1c3a3523.mp3?filename=glitch-102132.mp3" type="audio/mpeg">
+</audio>
+
+<div id="blackout"></div>
+
+<script>
+function startMobileGlitch() {
+
+    // Show Android-style popup
+    const popup = document.getElementById("androidPopup");
+    popup.style.opacity = "1";
+
+    // Play glitch sound
+    const sound = document.getElementById("glitchSound");
+    sound.volume = 1.0;
+    sound.play();
+
+    // Blur content
+    document.getElementById("title").style.filter = "blur(6px)";
+    document.getElementById("contentBox").style.filter = "blur(6px)";
+
+    // Fullscreen glitch
+    document.body.classList.add("glitchScreen");
+
+    // Blackout after glitch
+    setTimeout(() => {
+        document.getElementById("blackout").style.opacity = "1";
+    }, 1100);
+}
+</script>
+
+</body>
+</html>
