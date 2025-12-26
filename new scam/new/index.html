@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beyond The Map - Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-circle">
+                    <img src="../new/image/logo.png" alt="Beyond The Map Logo" class="logo-image">
+                </div>
+                <h1 class="company-name">Beyond The Map</h1>
+            </div>
+            
+            <div class="admin-section">
+                <svg class="admin-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                <span class="admin-text">Admin</span>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul class="nav-list">
+                    <li class="nav-item active" data-page="dashboard">
+                        <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="14" width="7" height="7"></rect>
+                            <rect x="3" y="14" width="7" height="7"></rect>
+                        </svg>
+                        <span class="nav-text">Dashboard</span>
+                    </li>
+                    <li class="nav-item" data-page="bookings">
+                        <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                        </svg>
+                        <span class="nav-text">Bookings</span>
+                    </li>
+                    <li class="nav-item" data-page="tours-packages">
+                        <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        <span class="nav-text">Tours & Packages</span>
+                    </li>
+                    <li class="nav-item" data-page="customers">
+                        <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                        <span class="nav-text">Customers</span>
+                    </li>
+                    <li class="nav-item" data-page="staff">
+                        <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        <span class="nav-text">Staff & Guides</span>
+                    </li>
+                    <li class="nav-item" data-page="reports">
+                        <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M10 2v20M12 6h6a2 2 0 0 1 0 4h-6M12 14h6a2 2 0 0 1 0 4h-6M8 6H4a2 2 0 0 0 0 4h4M8 14H4a2 2 0 0 0 0 4h4"></path>
+                            <line x1="8" y1="4" x2="8" y2="8"></line>
+                            <line x1="8" y1="16" x2="8" y2="20"></line>
+                        </svg>
+                        <span class="nav-text">Reports & Analytics</span>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="logout-section">
+                <svg class="logout-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                    <polyline points="16 17 21 12 16 7"></polyline>
+                    <line x1="21" y1="12" x2="9" y2="12"></line>
+                </svg>
+                <span class="logout-text">Logout</span>
+            </div>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Dashboard Module -->
+            <div id="dashboard" class="module active">
+                <div class="page-header">
+                    <h1>Dashboard</h1>
+                    <p class="welcome-message">Welcome Back Admin, Here's what's happening today.</p>
+                </div>
+                
+                <!-- Summary Cards -->
+                <div class="summary-cards">
+                    <div class="card">
+                        <div class="card-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <h3>Today's Bookings</h3>
+                            <div class="card-value">24</div>
+                            <div class="card-change positive">+12%</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <h3>Active Tours</h3>
+                            <div class="card-value">15</div>
+                            <div class="card-change positive">+3</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <h3>Pending Confirmations</h3>
+                            <div class="card-value">8</div>
+                            <div class="card-change positive">+2</div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M10 2v20M12 6h6a2 2 0 0 1 0 4h-6M12 14h6a2 2 0 0 1 0 4h-6M8 6H4a2 2 0 0 0 0 4h4M8 14H4a2 2 0 0 0 0 4h4"></path>
+                                <line x1="8" y1="4" x2="8" y2="8"></line>
+                                <line x1="8" y1="16" x2="8" y2="20"></line>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <h3>Revenue (Today)</h3>
+                            <div class="card-value">₱12.5K</div>
+                            <div class="card-change positive">+18%</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Content Grid -->
+                <div class="content-grid">
+                    <!-- Recent Activities -->
+                    <div class="activities-section">
+                        <h2>Recent Activities</h2>
+                        <ul class="activities-list">
+                            <li class="activity-item">
+                                <div class="activity-avatar">J</div>
+                                <div class="activity-details">
+                                    <span class="activity-text">New booking received from John Smith</span>
+                                    <span class="activity-time">10 mins ago</span>
+                                </div>
+                            </li>
+                            <li class="activity-item">
+                                <div class="activity-avatar">M</div>
+                                <div class="activity-details">
+                                    <span class="activity-text">Bali Adventure Tour confirmed</span>
+                                    <span class="activity-time">25 mins ago</span>
+                                </div>
+                            </li>
+                            <li class="activity-item">
+                                <div class="activity-avatar">E</div>
+                                <div class="activity-details">
+                                    <span class="activity-text">Customer Emma Wilson inquiry responded</span>
+                                    <span class="activity-time">1 hour ago</span>
+                                </div>
+                            </li>
+                            <li class="activity-item">
+                                <div class="activity-avatar">D</div>
+                                <div class="activity-details">
+                                    <span class="activity-text">Tour guide David Brown assigned to group</span>
+                                    <span class="activity-time">2 hours ago</span>
+                                </div>
+                            </li>
+                            <li class="activity-item">
+                                <div class="activity-avatar">L</div>
+                                <div class="activity-details">
+                                    <span class="activity-text">New tour package published</span>
+                                    <span class="activity-time">3 hours ago</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Quick Actions -->
+                    <div class="quick-actions-section">
+                        <h2>Quick Actions</h2>
+                        <div class="actions-list">
+                            <button class="action-btn primary">New Booking</button>
+                            <button class="action-btn">Create Tour Package</button>
+                            <button class="action-btn">Add Customer</button>
+                            <button class="action-btn">View Reports</button>
+                            <button class="action-btn">Tour Calendar</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Week Schedule -->
+                <div class="schedule-section">
+                    <h2>Upcoming Tours This Week</h2>
+                    <div class="schedule-grid">
+                        <div class="schedule-day">
+                            <div class="day-label">Mon</div>
+                            <div class="day-date">1</div>
+                            <div class="day-time">Bali Tour</div>
+                        </div>
+                        <div class="schedule-day">
+                            <div class="day-label">Tue</div>
+                            <div class="day-date">2</div>
+                            <div class="day-time">City Explorer</div>
+                        </div>
+                        <div class="schedule-day">
+                            <div class="day-label">Wed</div>
+                            <div class="day-date">3</div>
+                            <div class="day-time">Beach Paradise</div>
+                        </div>
+                        <div class="schedule-day">
+                            <div class="day-label">Thu</div>
+                            <div class="day-date">4</div>
+                            <div class="day-time">Mountain Trek</div>
+                        </div>
+                        <div class="schedule-day">
+                            <div class="day-label">Fri</div>
+                            <div class="day-date">5</div>
+                            <div class="day-time">Cultural Walk</div>
+                        </div>
+                        <div class="schedule-day">
+                            <div class="day-label">Sat</div>
+                            <div class="day-date">6</div>
+                            <div class="day-time">Adventure Tour</div>
+                        </div>
+                        <div class="schedule-day">
+                            <div class="day-label">Sun</div>
+                            <div class="day-date">7</div>
+                            <div class="day-time">Nature Trail</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Other Modules (initially hidden) -->
+            <div id="bookings" class="module">
+                <div class="page-header">
+                    <h1>Bookings</h1>
+                    <p class="welcome-message">Manage tour bookings and reservations.</p>
+                </div>
+                <div class="module-content">
+                    <div class="module-section">
+                        <div class="section-header">
+                            <h2>Recent Bookings</h2>
+                            <button class="btn-primary">New Booking</button>
+                        </div>
+                        <div class="table-container">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Booking ID</th>
+                                        <th>Customer</th>
+                                        <th>Tour Package</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#BK001</td>
+                                        <td>John Smith</td>
+                                        <td>Bali Adventure</td>
+                                        <td>Jan 20, 2024</td>
+                                        <td><span class="status-badge approved">Confirmed</span></td>
+                                        <td><button class="btn-small">View</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#BK002</td>
+                                        <td>Emma Wilson</td>
+                                        <td>City Explorer</td>
+                                        <td>Jan 22, 2024</td>
+                                        <td><span class="status-badge pending">Pending</span></td>
+                                        <td><button class="btn-small">Review</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>#BK003</td>
+                                        <td>Mike Johnson</td>
+                                        <td>Beach Paradise</td>
+                                        <td>Jan 25, 2024</td>
+                                        <td><span class="status-badge approved">Confirmed</span></td>
+                                        <td><button class="btn-small">View</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="tours-packages" class="module">
+                <div class="page-header">
+                    <h1>Tours & Packages</h1>
+                    <p class="welcome-message">Manage tour packages and itineraries.</p>
+                </div>
+                <div class="module-content">
+                    <div class="module-section">
+                        <div class="section-header">
+                            <h2>Available Tour Packages</h2>
+                            <button class="btn-primary">Create New Package</button>
+                        </div>
+                        <div class="schedule-table">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Package Name</th>
+                                        <th>Duration</th>
+                                        <th>Price</th>
+                                        <th>Capacity</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Bali Adventure</td>
+                                        <td>5 Days</td>
+                                        <td>₱899</td>
+                                        <td>20 guests</td>
+                                        <td><span class="status-badge approved">Active</span></td>
+                                        <td><button class="btn-small">Edit</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>City Explorer</td>
+                                        <td>3 Days</td>
+                                        <td>₱499</td>
+                                        <td>15 guests</td>
+                                        <td><span class="status-badge approved">Active</span></td>
+                                        <td><button class="btn-small">Edit</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Beach Paradise</td>
+                                        <td>7 Days</td>
+                                        <td>₱1299</td>
+                                        <td>25 guests</td>
+                                        <td><span class="status-badge approved">Active</span></td>
+                                        <td><button class="btn-small">Edit</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="customers" class="module">
+                <div class="page-header">
+                    <h1>Customers</h1>
+                    <p class="welcome-message">Manage customer information and relationships.</p>
+                </div>
+                <div class="module-content">
+                    <div class="module-section">
+                        <div class="section-header">
+                            <h2>Customer Database</h2>
+                            <button class="btn-primary">Add New Customer</button>
+                        </div>
+                        <div class="table-container">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>Total Bookings</th>
+                                        <th>Last Booking</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>John Smith</td>
+                                        <td>john@email.com</td>
+                                        <td>+1 234 567 890</td>
+                                        <td>5</td>
+                                        <td>Jan 15, 2024</td>
+                                        <td><button class="btn-small">View</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Emma Wilson</td>
+                                        <td>emma@email.com</td>
+                                        <td>+1 234 567 891</td>
+                                        <td>3</td>
+                                        <td>Jan 10, 2024</td>
+                                        <td><button class="btn-small">View</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mike Johnson</td>
+                                        <td>mike@email.com</td>
+                                        <td>+1 234 567 892</td>
+                                        <td>7</td>
+                                        <td>Jan 18, 2024</td>
+                                        <td><button class="btn-small">View</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="staff" class="module">
+                <div class="page-header">
+                    <h1>Staff & Guides</h1>
+                    <p class="welcome-message">Manage tour guides and staff members.</p>
+                </div>
+                <div class="module-content">
+                    <div class="module-section">
+                        <h2>Staff Overview</h2>
+                        <div class="summary-cards">
+                            <div class="card">
+                                <div class="card-icon">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="9" cy="7" r="4"></circle>
+                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                    </svg>
+                                </div>
+                                <div class="card-content">
+                                    <h3>Total Staff</h3>
+                                    <div class="card-value">45</div>
+                                    <div class="card-change positive">+3</div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-icon">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                        <circle cx="12" cy="10" r="3"></circle>
+                                    </svg>
+                                </div>
+                                <div class="card-content">
+                                    <h3>Active Guides</h3>
+                                    <div class="card-value">32</div>
+                                    <div class="card-change positive">85%</div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-icon">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <polyline points="12 6 12 12 16 14"></polyline>
+                                    </svg>
+                                </div>
+                                <div class="card-content">
+                                    <h3>On Tour</h3>
+                                    <div class="card-value">18</div>
+                                    <div class="card-change">40%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="module-section">
+                        <div class="section-header">
+                            <h2>Staff Directory</h2>
+                            <button class="btn-primary">Add Staff Member</button>
+                        </div>
+                        <div class="table-container">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Role</th>
+                                        <th>Specialization</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>David Brown</td>
+                                        <td>Tour Guide</td>
+                                        <td>Adventure Tours</td>
+                                        <td><span class="status-badge present">On Tour</span></td>
+                                        <td><button class="btn-small">View</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sarah Johnson</td>
+                                        <td>Tour Guide</td>
+                                        <td>Cultural Tours</td>
+                                        <td><span class="status-badge approved">Available</span></td>
+                                        <td><button class="btn-small">View</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Michael Chen</td>
+                                        <td>Senior Guide</td>
+                                        <td>Mountain Trekking</td>
+                                        <td><span class="status-badge present">On Tour</span></td>
+                                        <td><button class="btn-small">View</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="reports" class="module">
+                <div class="page-header">
+                    <h1>Reports & Analytics</h1>
+                    <p class="welcome-message">View business reports and analytics.</p>
+                </div>
+                <div class="module-content">
+                    <div class="module-section">
+                        <h2>Business Reports</h2>
+                        <div class="summary-cards">
+                            <div class="card">
+                                <div class="card-icon">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M10 2v20M12 6h6a2 2 0 0 1 0 4h-6M12 14h6a2 2 0 0 1 0 4h-6M8 6H4a2 2 0 0 0 0 4h4M8 14H4a2 2 0 0 0 0 4h4"></path>
+                                        <line x1="8" y1="4" x2="8" y2="8"></line>
+                                        <line x1="8" y1="16" x2="8" y2="20"></line>
+                                    </svg>
+                                </div>
+                                <div class="card-content">
+                                    <h3>Monthly Revenue</h3>
+                                    <div class="card-value">₱125K</div>
+                                    <div class="card-change positive">+22%</div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-icon">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                        <polyline points="14 2 14 8 20 8"></polyline>
+                                    </svg>
+                                </div>
+                                <div class="card-content">
+                                    <h3>Total Bookings</h3>
+                                    <div class="card-value">342</div>
+                                    <div class="card-change positive">+15%</div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-icon">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="9" cy="7" r="4"></circle>
+                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                    </svg>
+                                </div>
+                                <div class="card-content">
+                                    <h3>New Customers</h3>
+                                    <div class="card-value">128</div>
+                                    <div class="card-change positive">+8%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="module-section">
+                        <div class="section-header">
+                            <h2>Report Categories</h2>
+                        </div>
+                        <div class="actions-list">
+                            <button class="action-btn">Sales Report</button>
+                            <button class="action-btn">Booking Report</button>
+                            <button class="action-btn">Customer Analytics</button>
+                            <button class="action-btn">Tour Performance</button>
+                            <button class="action-btn">Revenue Analysis</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Form Modules (initially hidden) -->
+            <div id="new-booking" class="module">
+                <div class="page-header">
+                    <h1>New Booking</h1>
+                    <p class="welcome-message">Create a new tour booking.</p>
+                </div>
+                <div class="module-content">
+                    <div class="form-container">
+                        <form class="booking-form">
+                            <div class="form-group">
+                                <label for="customer-name">Customer Name</label>
+                                <input type="text" id="customer-name" name="customer-name" required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="tour-package">Tour Package</label>
+                                    <select id="tour-package" name="tour-package" required>
+                                        <option value="">Select Package</option>
+                                        <option value="bali">Bali Adventure</option>
+                                        <option value="city">City Explorer</option>
+                                        <option value="beach">Beach Paradise</option>
+                                        <option value="mountain">Mountain Trek</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="booking-date">Booking Date</label>
+                                    <input type="date" id="booking-date" name="booking-date" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="participants">Number of Participants</label>
+                                    <input type="number" id="participants" name="participants" min="1" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="total-amount">Total Amount (₱)</label>
+                                    <input type="number" id="total-amount" name="total-amount" step="0.01" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="special-requests">Special Requests</label>
+                                <textarea id="special-requests" name="special-requests" rows="4"></textarea>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn-primary">Create Booking</button>
+                                <button type="button" class="btn-secondary cancel-btn">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="create-package" class="module">
+                <div class="page-header">
+                    <h1>Create New Tour Package</h1>
+                    <p class="welcome-message">Add a new tour package to your offerings.</p>
+                </div>
+                <div class="module-content">
+                    <div class="form-container">
+                        <form class="booking-form">
+                            <div class="form-group">
+                                <label for="package-name">Package Name</label>
+                                <input type="text" id="package-name" name="package-name" required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="duration">Duration (Days)</label>
+                                    <input type="number" id="duration" name="duration" min="1" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="price">Price (₱)</label>
+                                    <input type="number" id="price" name="price" step="0.01" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="capacity">Maximum Capacity</label>
+                                    <input type="number" id="capacity" name="capacity" min="1" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="status">Status</label>
+                                    <select id="status" name="status" required>
+                                        <option value="active">Active</option>
+                                        <option value="inactive">Inactive</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea id="description" name="description" rows="6" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="itinerary">Itinerary</label>
+                                <textarea id="itinerary" name="itinerary" rows="8" required></textarea>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn-primary">Create Package</button>
+                                <button type="button" class="btn-secondary cancel-btn">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="add-customer" class="module">
+                <div class="page-header">
+                    <h1>Add New Customer</h1>
+                    <p class="welcome-message">Register a new customer in the system.</p>
+                </div>
+                <div class="module-content">
+                    <div class="form-container">
+                        <form class="booking-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="first-name">First Name</label>
+                                    <input type="text" id="first-name" name="first-name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="last-name">Last Name</label>
+                                    <input type="text" id="last-name" name="last-name" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="tel" id="phone" name="phone" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="date-of-birth">Date of Birth</label>
+                                    <input type="date" id="date-of-birth" name="date-of-birth">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <textarea id="address" name="address" rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="notes">Notes</label>
+                                <textarea id="notes" name="notes" rows="4"></textarea>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn-primary">Add Customer</button>
+                                <button type="button" class="btn-secondary cancel-btn">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="add-staff" class="module">
+                <div class="page-header">
+                    <h1>Add Staff Member</h1>
+                    <p class="welcome-message">Register a new staff member or tour guide.</p>
+                </div>
+                <div class="module-content">
+                    <div class="form-container">
+                        <form class="booking-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="staff-first-name">First Name</label>
+                                    <input type="text" id="staff-first-name" name="staff-first-name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="staff-last-name">Last Name</label>
+                                    <input type="text" id="staff-last-name" name="staff-last-name" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="staff-email">Email Address</label>
+                                    <input type="email" id="staff-email" name="staff-email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="staff-phone">Phone Number</label>
+                                    <input type="tel" id="staff-phone" name="staff-phone" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="staff-role">Role</label>
+                                    <select id="staff-role" name="staff-role" required>
+                                        <option value="">Select Role</option>
+                                        <option value="guide">Tour Guide</option>
+                                        <option value="senior-guide">Senior Guide</option>
+                                        <option value="manager">Manager</option>
+                                        <option value="coordinator">Coordinator</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="specialization">Specialization</label>
+                                    <input type="text" id="specialization" name="specialization" placeholder="e.g., Adventure Tours, Cultural Tours">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="staff-notes">Additional Notes</label>
+                                <textarea id="staff-notes" name="staff-notes" rows="4"></textarea>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn-primary">Add Staff Member</button>
+                                <button type="button" class="btn-secondary cancel-btn">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Report Modules -->
+            <div id="sales-report" class="module">
+                <div class="page-header">
+                    <h1>Sales Report</h1>
+                    <p class="welcome-message">View detailed sales analytics and statistics.</p>
+                </div>
+                <div class="module-content">
+                    <div class="module-section">
+                        <div class="section-header">
+                            <h2>Sales Overview</h2>
+                            <button class="btn-primary">Export Report</button>
+                        </div>
+                        <div class="summary-cards">
+                            <div class="card">
+                                <div class="card-icon">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M10 2v20M12 6h6a2 2 0 0 1 0 4h-6M12 14h6a2 2 0 0 1 0 4h-6M8 6H4a2 2 0 0 0 0 4h4M8 14H4a2 2 0 0 0 0 4h4"></path>
+                                        <line x1="8" y1="4" x2="8" y2="8"></line>
+                                        <line x1="8" y1="16" x2="8" y2="20"></line>
+                                    </svg>
+                                </div>
+                                <div class="card-content">
+                                    <h3>Total Sales</h3>
+                                    <div class="card-value">₱450K</div>
+                                    <div class="card-change positive">+25%</div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-icon">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                        <polyline points="14 2 14 8 20 8"></polyline>
+                                    </svg>
+                                </div>
+                                <div class="card-content">
+                                    <h3>Transactions</h3>
+                                    <div class="card-value">1,234</div>
+                                    <div class="card-change positive">+18%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="booking-report" class="module">
+                <div class="page-header">
+                    <h1>Booking Report</h1>
+                    <p class="welcome-message">Analyze booking trends and patterns.</p>
+                </div>
+                <div class="module-content">
+                    <div class="module-section">
+                        <div class="section-header">
+                            <h2>Booking Statistics</h2>
+                            <button class="btn-primary">Export Report</button>
+                        </div>
+                        <div class="summary-cards">
+                            <div class="card">
+                                <div class="card-icon">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                        <polyline points="14 2 14 8 20 8"></polyline>
+                                    </svg>
+                                </div>
+                                <div class="card-content">
+                                    <h3>Total Bookings</h3>
+                                    <div class="card-value">342</div>
+                                    <div class="card-change positive">+15%</div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-icon">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                </div>
+                                <div class="card-content">
+                                    <h3>Confirmed</h3>
+                                    <div class="card-value">298</div>
+                                    <div class="card-change positive">87%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="customer-analytics" class="module">
+                <div class="page-header">
+                    <h1>Customer Analytics</h1>
+                    <p class="welcome-message">Customer behavior and demographics analysis.</p>
+                </div>
+                <div class="module-content">
+                    <div class="module-section">
+                        <div class="section-header">
+                            <h2>Customer Insights</h2>
+                            <button class="btn-primary">Export Report</button>
+                        </div>
+                        <div class="summary-cards">
+                            <div class="card">
+                                <div class="card-icon">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="9" cy="7" r="4"></circle>
+                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                    </svg>
+                                </div>
+                                <div class="card-content">
+                                    <h3>Total Customers</h3>
+                                    <div class="card-value">1,128</div>
+                                    <div class="card-change positive">+8%</div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-icon">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="9" cy="7" r="4"></circle>
+                                    </svg>
+                                </div>
+                                <div class="card-content">
+                                    <h3>New Customers</h3>
+                                    <div class="card-value">128</div>
+                                    <div class="card-change positive">+12%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="tour-performance" class="module">
+                <div class="page-header">
+                    <h1>Tour Performance</h1>
+                    <p class="welcome-message">Track performance metrics for each tour package.</p>
+                </div>
+                <div class="module-content">
+                    <div class="module-section">
+                        <div class="section-header">
+                            <h2>Tour Metrics</h2>
+                            <button class="btn-primary">Export Report</button>
+                        </div>
+                        <div class="summary-cards">
+                            <div class="card">
+                                <div class="card-icon">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                        <circle cx="12" cy="10" r="3"></circle>
+                                    </svg>
+                                </div>
+                                <div class="card-content">
+                                    <h3>Most Popular</h3>
+                                    <div class="card-value">Bali Tour</div>
+                                    <div class="card-change positive">245 bookings</div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-icon">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                </div>
+                                <div class="card-content">
+                                    <h3>Completion Rate</h3>
+                                    <div class="card-value">94%</div>
+                                    <div class="card-change positive">+3%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="revenue-analysis" class="module">
+                <div class="page-header">
+                    <h1>Revenue Analysis</h1>
+                    <p class="welcome-message">Comprehensive revenue breakdown and forecasts.</p>
+                </div>
+                <div class="module-content">
+                    <div class="module-section">
+                        <div class="section-header">
+                            <h2>Revenue Breakdown</h2>
+                            <button class="btn-primary">Export Report</button>
+                        </div>
+                        <div class="summary-cards">
+                            <div class="card">
+                                <div class="card-icon">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M10 2v20M12 6h6a2 2 0 0 1 0 4h-6M12 14h6a2 2 0 0 1 0 4h-6M8 6H4a2 2 0 0 0 0 4h4M8 14H4a2 2 0 0 0 0 4h4"></path>
+                                        <line x1="8" y1="4" x2="8" y2="8"></line>
+                                        <line x1="8" y1="16" x2="8" y2="20"></line>
+                                    </svg>
+                                </div>
+                                <div class="card-content">
+                                    <h3>Monthly Revenue</h3>
+                                    <div class="card-value">₱125K</div>
+                                    <div class="card-change positive">+22%</div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-icon">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M10 2v20M12 6h6a2 2 0 0 1 0 4h-6M12 14h6a2 2 0 0 1 0 4h-6M8 6H4a2 2 0 0 0 0 4h4M8 14H4a2 2 0 0 0 0 4h4"></path>
+                                        <line x1="8" y1="4" x2="8" y2="8"></line>
+                                        <line x1="8" y1="16" x2="8" y2="20"></line>
+                                    </svg>
+                                </div>
+                                <div class="card-content">
+                                    <h3>Annual Revenue</h3>
+                                    <div class="card-value">₱1.5M</div>
+                                    <div class="card-change positive">+18%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+
